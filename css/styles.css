@@ -1,28 +1,49 @@
-h1 {
-  text-align: center;
-}
-
-body {
-  display: flex;
-  flex-direction: column;
-}
-
+/* Main Divs */
 #register-account {
   width: 50%;
+  height: 100%;
   float: left;
   text-align: center;
+  border: 2px double black;
+  padding: 10px;
 }
 
 #alter-bal {
   width: 50%;
+  height: 100%;
   float: right;
   text-align: center;
+  border: 2px double black;
+  padding: 10px;
 }
 
 #display-bal {
+  width: 100%;
   text-align: center;
   margin: 2%;
-  padding: 2%
+  padding: 2%;
+  border: 2px double black;
+}
+
+/* Buttons */
+#register-btn {
+  margin-top: 5px;
+}
+
+
+/* Headers */
+h1 {
+  text-align: center;
+  font-family: 'Durbank', sans-serif;
+  font-size: 80px;
+
+}
+
+
+
+body {
+  display: flex;
+  flex-direction: column;
 }
 
 .hidden {

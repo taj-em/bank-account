@@ -5,48 +5,70 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="js/scripts.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link href="https://fonts.cdnfonts.com/css/durbank" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
-  <title>The Bank</title>
+  <title>The Epicodus Bank</title>
 </head>
 
 <body>
-  <h1>The Bank</h1>
-
-  <div id="sideBySide">
-    <div id="register-account">
-      <h2>Register a New Account:</h2>
-      <form id="newAccountForm">
-        <label>Name: <input type="text" id="newAccountName"></label>
-        <br>
-        <label>Initial Deposit: <input type="number" id="newAccountInitDeposit"></label>
-        <br>
-        <button type="submit">Register New Account</button>
-      </form>
+  <div class="container">
+    <h1>The Epicodus Bank</h1>
+    <div class="row">
+      <div id="sideBySide">
+        <div id="register-account">
+          <div class="col">
+            <h2>Register a New Account:</h2>
+            <hr>
+            <form id="newAccountForm">
+              <div class="form-group">
+                <label><input type="text" id="newAccountName" class="form-control"
+                    placeholder="Enter Your Name:"></label>
+                <br>
+                <label><input type="number" id="newAccountInitDeposit" class="form-control"
+                    placeholder="Enter Inital Deposit:"></label>
+                <br>
+                <button type="submit" id="register-btn" class="btn btn-success">Register New Account</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div id="alter-bal" class="hidden">
+          <div class="col">
+            <h2>Deposit or Withdraw Funds:</h2>
+            <hr>
+            <form id="transaction">
+              <label for="deposit">Deposit</label>
+              <input type="radio" value="1" id="deposit" name="deposit/withdraw" checked>
+              </label>
+              <br>
+              <label for="withdraw">Withdraw</label>
+              <input type="radio" value="0" id="withdraw" name="deposit/withdraw">
+              </label>
+              <br>
+              <label for="manage-funds">How much would you like to Deposit/Withdraw?</label>
+              <br>
+              <input type="number" id="manage-funds">
+              <button type="submit" class="btn btn-success">Confirm</button>
+            </form>
+            <br>
+            <div id="errorMessageDiv" class="hidden">
+              <div class="alert alert-danger" role="alert">
+                <p id="errorMessageHolder">Error: </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="row"> <!-- #display-bal -->
+        <div id="display-bal" class="hidden col">
+          <h3>Your Balance:</h3>
+          <p>$<span id="balance"></span>.00</p>
+        </div>
+      </div>
     </div>
-    <div id="alter-bal" class="hidden">
-      <h2>Deposit or Withdraw Funds:</h2>
-      <form id="transaction">
-        <label for="deposit">Deposit</label>
-        <input type="radio" value="1" id="deposit" name="deposit/withdraw" checked>
-        </label>
-        <br>
-        <label for="withdraw">Withdraw</label>
-        <input type="radio" value="0" id="withdraw" name="deposit/withdraw">
-        </label>
-        <br>
-        <label for="manage-funds">How much would you like to Deposit/Withdraw?</label>
-        <br>
-        <input type="number" id="manage-funds">
-        <button type="submit">Confirm</button>
-      </form>
-      <p id="errorMessageHolder" class="hidden">Error: </p>
-    </div>
-  </div>
-  <br>
-
-  <div id="display-bal" class="hidden">
-    <h3>Your Balance:</h3>
-    <p>$<span id="balance"></span>.00</p>
   </div>
 </body>
 

@@ -54,8 +54,8 @@ function handleSubmitRegister(event) {
   const inputName = document.getElementById("newAccountName").value;
   const inputDeposit = parseInt(document.getElementById("newAccountInitDeposit").value);
   createBankAccount(inputName, inputDeposit);
-  document.getElementById("alter-bal").removeAttribute("class");
-  document.getElementById("display-bal").removeAttribute("class");
+  document.getElementById("alter-bal").classList.remove("hidden");
+  document.getElementById("display-bal").classList.remove("hidden");
   document.getElementById("balance").innerText = inputDeposit;
 }
 
@@ -81,12 +81,13 @@ function handleSubmitTransaction(event) {
 function displayErrorWarning(message) {
   const errorMessageHolder = document.getElementById("errorMessageHolder");
   errorMessageHolder.innerHTML = "Error: " + message;
-  errorMessageHolder.removeAttribute("class");
+  const errorMessageDiv = document.getElementById("errorMessageDiv");
+  errorMessageDiv.removeAttribute("class");
 }
 
 function hideErrorWarning() {
-  const errorMessageHolder = document.getElementById("errorMessageHolder");
-  errorMessageHolder.setAttribute("class", "hidden");
+  const errorMessageDiv = document.getElementById("errorMessageDiv");
+  errorMessageDiv.setAttribute("class", "hidden");
 }
 
 function handleSubmitDisplay() {
