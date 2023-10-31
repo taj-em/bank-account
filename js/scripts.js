@@ -71,16 +71,20 @@ function handleSubmitTransaction(event) {
   hideErrorWarning();
   const operator = document.querySelector('input[name="deposit/withdraw"]:checked').value
   const amount = document.getElementById("manage-funds").value;
-  if (operator === "1" && amount > 0) {
-    bankAccountList.bankAccounts[1].deposit(parseInt(amount));
-  } else if (amount <= 0) {
-    displayErrorWarning("Cannot deposit an amount equal to or less than 0");
-  }
-  if (operator === "0" && amount <= bankAccountList.bankAccounts[1].initialDeposit) {
-    bankAccountList.bankAccounts[1].withdrawl(parseInt(amount));
+  if (amount) {
+    if (operator === "1" && amount > 0) {
+      bankAccountList.bankAccounts[1].deposit(parseInt(amount));
+    } else if (amount <= 0) {
+      displayErrorWarning("Cannot deposit an amount equal to or less than 0");
+    }
+    if (operator === "0" && amount <= bankAccountList.bankAccounts[1].initialDeposit) {
+      bankAccountList.bankAccounts[1].withdrawl(parseInt(amount));
 
-  } else if (amount > bankAccountList.bankAccounts[1].initialDeposit) {
-    displayErrorWarning("Attempted to withdraw more funds than are currently available");
+    } else if (amount > bankAccountList.bankAccounts[1].initialDeposit) {
+      displayErrorWarning("Attempted to withdraw more funds than are currently available");
+    }
+  } else {
+    displayErrorWarning("Please enter a value");
   }
   handleSubmitDisplay();
 }
