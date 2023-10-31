@@ -37,7 +37,6 @@ BankAccount.prototype.withdrawl = function (amount) {
   };
 }
 
-
 // Business Logic
 let bankAccountList = new AccountList;
 
@@ -53,10 +52,18 @@ function handleSubmitRegister(event) {
   event.preventDefault();
   const inputName = document.getElementById("newAccountName").value;
   const inputDeposit = parseInt(document.getElementById("newAccountInitDeposit").value);
+  if (!(inputDeposit >= 0) && !(inputDeposit < 0)) {
+    const invalidInitAlert = document.getElementById("invalidInitDeposit");
+    invalidInitAlert.classList.remove("hidden");
+    invalidInitAlert.innerText = "Please input an initial deposit.";
+    return;
+  }
   createBankAccount(inputName, inputDeposit);
+  document.getElementById("register-account").classList.add("hidden");
+  handleSubmitDisplay();
   document.getElementById("alter-bal").classList.remove("hidden");
   document.getElementById("display-bal").classList.remove("hidden");
-  document.getElementById("balance").innerText = inputDeposit;
+  document.getElementById("account-name").innerText = inputName;
 }
 
 function handleSubmitTransaction(event) {
@@ -93,7 +100,11 @@ function hideErrorWarning() {
 function handleSubmitDisplay() {
   const currentBalance = bankAccountList.bankAccounts[1].initialDeposit;
   document.getElementById("balance").innerText = "";
-  document.getElementById("balance").innerText = currentBalance;
+  let displayedBalance = currentBalance;
+  if (currentBalance > 999) {
+    displayedBalance = currentBalance.toString().replace(/(?<=\d)(?=(\d{3})+$)/, ",")
+  }
+  document.getElementById("balance").innerText = displayedBalance;
 }
 
 window.addEventListener("load", function () {

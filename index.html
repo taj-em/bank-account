@@ -8,6 +8,8 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <link href="https://fonts.cdnfonts.com/css/durbank" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/every-dreams" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/countless" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
   <title>The Epicodus Bank</title>
 </head>
@@ -15,9 +17,11 @@
 <body>
   <div class="container">
     <h1>The Epicodus Bank</h1>
+    <h5 class="headerSubtext">The Most Trusted Bank for Programmers Since 2023</h5>
+    <br>
     <div class="row">
       <div id="sideBySide">
-        <div id="register-account">
+        <div id="register-account" class="border rounded border-dark">
           <div class="col">
             <h2>Register a New Account:</h2>
             <hr>
@@ -32,28 +36,32 @@
                 <button type="submit" id="register-btn" class="btn btn-success">Register New Account</button>
               </div>
             </form>
+            <div id="invalidInitDeposit" class="alert alert-danger hidden" role="alert"></div>
           </div>
         </div>
-        <div id="alter-bal" class="hidden">
+        <div id="alter-bal" class="hidden border rounded border-dark">
           <div class="col">
+            <h2>Account Name: <span id="account-name"></span></h2>
             <h2>Deposit or Withdraw Funds:</h2>
             <hr>
             <form id="transaction">
-              <label for="deposit">Deposit</label>
-              <input type="radio" value="1" id="deposit" name="deposit/withdraw" checked>
-              </label>
+              <div id="radio-btns" class="form-check form-switch">
+                <label for="deposit" class="form-check-label">Deposit</label>
+                <input type="radio" class="form-check-input" value="1" id="deposit" name="deposit/withdraw" checked>
+                </label>
+                <br>
+                <label for="withdraw" class="form-check-label">Withdraw</label>
+                <input type="radio" class="form-check-input" value="0" id="withdraw" name="deposit/withdraw">
+                </label>
+              </div>
               <br>
-              <label for="withdraw">Withdraw</label>
-              <input type="radio" value="0" id="withdraw" name="deposit/withdraw">
-              </label>
-              <br>
-              <label for="manage-funds">How much would you like to Deposit/Withdraw?</label>
-              <br>
-              <input type="number" id="manage-funds">
-              <button type="submit" class="btn btn-success">Confirm</button>
+              <h4>How much would you like to Deposit/Withdraw?</h3>
+                <hr>
+                <input type="number" class="form-control" id="manage-funds" placeholder="Enter Amount:">
+                <button type="submit" class="btn btn-success">Confirm</button>
             </form>
             <br>
-            <div id="errorMessageDiv" class="hidden">
+            <div id="errorMessageDiv" class="hidden border rounded border-dark">
               <div class="alert alert-danger" role="alert">
                 <p id="errorMessageHolder">Error: </p>
               </div>
@@ -63,9 +71,9 @@
       </div>
       <br>
       <div class="row"> <!-- #display-bal -->
-        <div id="display-bal" class="hidden col">
+        <div id="display-bal" class="hidden col border rounded border-dark">
           <h3>Your Balance:</h3>
-          <p>$<span id="balance"></span>.00</p>
+          <p id="balanceDisplay">$<span id="balance"></span>.00</p>
         </div>
       </div>
     </div>
