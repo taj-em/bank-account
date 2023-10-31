@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="js/scripts.js"></script>
+  <link href="css/styles.css" rel="stylesheet">
+  <title>The Bank</title>
+</head>
+
+<body>
+  <h1>The Bank</h1>
+
+  <div id="sideBySide">
+    <div id="register-account">
+      <h2>Register a New Account:</h2>
+      <form id="newAccountForm">
+        <label>Name: <input type="text" id="newAccountName"></label>
+        <br>
+        <label>Initial Deposit: <input type="number" id="newAccountInitDeposit"></label>
+        <br>
+        <button type="submit">Register New Account</button>
+      </form>
+    </div>
+    <div id="alter-bal" class="hidden">
+      <h2>Deposit or Withdraw Funds:</h2>
+      <form id="transaction">
+        <label for="deposit">Deposit</label>
+        <input type="radio" value="1" id="deposit" name="deposit/withdraw" checked>
+        </label>
+        <br>
+        <label for="withdraw">Withdraw</label>
+        <input type="radio" value="0" id="withdraw" name="deposit/withdraw">
+        </label>
+        <br>
+        <label for="manage-funds">How much would you like to Deposit/Withdraw?</label>
+        <br>
+        <input type="number" id="manage-funds">
+        <button type="submit">Confirm</button>
+      </form>
+      <p id="errorMessageHolder" class="hidden">Error: </p>
+    </div>
+  </div>
+  <br>
+
+  <div id="display-bal" class="hidden">
+    <h3>Your Balance:</h3>
+    <p>$<span id="balance"></span>.00</p>
+  </div>
+</body>
+
+</html>

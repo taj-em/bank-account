@@ -1,0 +1,34 @@
+h1 {
+  text-align: center;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+#register-account {
+  width: 50%;
+  float: left;
+  text-align: center;
+}
+
+#alter-bal {
+  width: 50%;
+  float: right;
+  text-align: center;
+}
+
+#display-bal {
+  text-align: center;
+  margin: 2%;
+  padding: 2%
+}
+
+.hidden {
+  display: none;
+}
+
+#errorMessageHolder {
+  color: red;
+}
